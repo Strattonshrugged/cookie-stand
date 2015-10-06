@@ -1,15 +1,17 @@
 
-// Random Cookie Demands By Hour
+
+// Hours of operation, kept in case Pat wants to change store hours
+hours = ['10 AM','11 AM','12 PM','1 PM','2 PM','3 PM','4 PM','5 PM']
+
+// Random Cookie Demands Per Hour By Location
 pikepmRandoms = []
 seatacRandoms = []
 soctrmRandoms = []
 bellsqRandoms = []
 alkiRandoms = []
 
-// unittest
-console.log("Cookie Stand App.js has initiated");
 
-// Generate random numbers within provided ranges to populate arrays
+// Generate random numbers within provided ranges to populate Randoms
 var pikepm = {
 	location: 'Pike Place Market',
 	minCusPerHr: 17,
@@ -20,7 +22,7 @@ var pikepm = {
 	}
 }
 
-for (var i = 0; i < 8; i++) {
+for (var i = 0; i < hours.length; i++) {
 	pikepmRandoms.push(pikepm.randCookieDemand());
 }
 
@@ -36,7 +38,7 @@ var seatac = {
 	}
 }
 
-for (var i = 0; i < 8; i++) {
+for (var i = 0; i < hours.length; i++) {
 	seatacRandoms.push(seatac.randCookieDemand());
 }
 
@@ -52,7 +54,7 @@ var soctrm = {
 	}
 }
 
-for (var i = 0; i < 8; i++) {
+for (var i = 0; i < hours.length; i++) {
 	soctrmRandoms.push(soctrm.randCookieDemand());
 }
 
@@ -68,7 +70,7 @@ var bellsq = {
 	}
 }
 
-for (var i = 0; i < 8; i++) {
+for (var i = 0; i < hours.length; i++) {
 	bellsqRandoms.push(bellsq.randCookieDemand());
 }
 
@@ -84,7 +86,7 @@ var alki = {
 	}
 }
 
-for (var i = 0; i < 8; i++) {
+for (var i = 0; i < hours.length; i++) {
 	alkiRandoms.push(alki.randCookieDemand());
 }
 
@@ -100,38 +102,49 @@ function arraySum(arr)	{
 var pikepmTotal = arraySum(pikepmRandoms);
 var seatacTotal = arraySum(seatacRandoms);
 var soctrmTotal = arraySum(soctrmRandoms);
-var bellsqTotal = arraySum(BellsqRandoms);
+var bellsqTotal = arraySum(bellsqRandoms);
 var alkiTotal = arraySum(alkiRandoms);
 
 
 // List each element in the array using the following "label" array and function
 
-times = ['10AM','11AM','12PM','1PM','2PM','3PM','4PM','5PM']
 
-function makeUL(Numbaz,listposition) {
+function makeUL(Numbaz, locationTotal, listposition) {
     for(var i = 0; i < Numbaz.length; i++) {
         // connect the list to the JS; this is where your list will appear
         var awesomeList = document.getElementById(listposition);
         // Create the list item:
         var item = document.createElement('li');
         // Set its contents:
-        item.appendChild(document.createTextNode(Numbaz[i]));
+        item.appendChild(document.createTextNode(hours[i] + ": "));
+        item.appendChild(document.createTextNode(Numbaz[i] + " cookies"));
         // Add it to the list:
         awesomeList.appendChild(item);
     }
+    var item = document.createElement('li');
+    item.appendChild(document.createTextNode("Total: " + locationTotal + " cookies"));
+    awesomeList.appendChild(item);
+
+    	// somewhere in here I should be able to add total to the awesomeList
         // Finally, return the constructed list:
     return awesomeList;
 }
 
+makeUL(pikepmRandoms,pikepmTotal,"pikepmlist");
+makeUL(seatacRandoms,seatacTotal,"seataclist");
+makeUL(soctrmRandoms,soctrmTotal,"soctrmlist");
+makeUL(bellsqRandoms,bellsqTotal,"bellsqlist");
+makeUL(alkiRandoms,alkiTotal,"alkilist");
 
 
-makeUL(pikepmRandoms,"pikepmlist");
-makeUL(seatacRandoms,"seataclist");
-makeUL(soctrmRandoms,"soctrmlist");
-makeUL(bellsqRandoms,"bellsqlist");
-makeUL(alkiRandoms,"alkilist");
 
-
+// function AddTotalUL(Numbah,listposition)	{
+// 	var finalList = document.getElementById(listposition);
+// 	var trinket = document.createElement('li');
+// 	trinket.appendChild(document.createTextNode("Total: " + Numbah + " cookies"));
+// 	finalList.appendChild(trinket);
+// 	return finalList;
+// }
 
 
 
