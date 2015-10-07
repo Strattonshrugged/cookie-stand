@@ -1,20 +1,107 @@
 
 
+header, section, footer, aside, nav, article	{
+	display: block;
+}
+
+figure, figcaption	{
+	display: block;
+}
+
 body	{
-	background-color: pink;
+	background-color: #54ff9f;
+	background-image: url("https://upload.wikimedia.org/wikipedia/commons/1/1c/Ocean_water_surface_texture_3_-_Martha's_Vineyard.JPG");
+	background-position: center;
+}
+
+.wrapper	{
+	width: 940px;
+	margin: 10px auto 10px auto;
+	border: 4px solid #6BCAE2;
+	background-color: #ff9999;
+	font-family:'Almendra SC';
+	letter-spacing: 2
+	line-height: 0.5;
+}
+
+#logoSalmon	{
+	float: right;
+	margin-right: 20px;
+}
+
+header	{
+	margin-left: 20px;
+}	
+
+h1		{
+	line-height: 0.75;
+	text-shadow:
+	1px		1px		#6BCAE2,
+	-1px    -1px    #6BCAE2;
+}
+
+aside	{
+	border: 4px solid #6BCAE2;
+	background-color: #ff9999;
+	font-family: 'Dejavu Serif';
+	font-size: 14px;
+	margin: 10px 20px 10px 0px;
+	width: 280px;
+	float: left;
+}
+
+/*
+#ff9999 is salmon pink
+#000080 is navy blue
+
+div		{
+	background-color: #A5ACAF;	
+}
+
+#header		{
+	height: auto;	
+	width: 90%;
+	border: 1px solid orange;
+}
+
+
+#HeaderSalmon-public	{
+	vertical-align;
+	float: left;
+	border: 1px solid orange;
+	width: 30%;
+}
+
+
+#frontText-public	{
+	font-family:'Almendra SC';
+	letter-spacing: 2;
+	border: 1px solid red;
+	float: right;
+	width: 40%;
+}
+
+.wrapper		{
+	vertical-align;
+}
+
+#headline	{
+	text-align: center;
+	vertical-align;
 }
 
 h1,h3	{
+	text-align: center;
 	font-family:'Almendra SC';
 	letter-spacing: 2;
 }
 
+
+
+
 #container		{
-	font-family:'DejaVu';
-	height: 100%;
-	margin-left: 20%;
-	margin-right: 20%;
-	background-color: #A5ACAF;
+	ffont-family:'DejaVu';
+
 }
 
 #text	{
@@ -35,3 +122,5 @@ h1,h3	{
 
 }
 
+
+*/
