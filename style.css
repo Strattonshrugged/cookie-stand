@@ -4,29 +4,34 @@ body	{
 	background-color: pink;
 }
 
+h1,h3	{
+	font-family:'Almendra SC';
+	letter-spacing: 2;
+}
+
 #container		{
-	padding: 100px;
-	vertical-align;
+	font-family:'DejaVu';
+	height: 100%;
+	margin-left: 20%;
+	margin-right: 20%;
 	background-color: #A5ACAF;
 }
 
-h4		{
+#text	{
+	font-family:'DejaVu Sans';
+	vertical-align;
+	color: #002244;
 }
 
-h2		{
-}
 
 #data	{
-	font-color: #002244;
+	font-family:'DejaVu Serif';
+	color: #69BE28;
+	vertical-align;
+	letter-spacing: 1.5;
+	text-shadow:
+	-1px	-1px	#002244,
+	0px		0px		#002244;
+
 }
-
-#text	{
-	font-color: #69BE28
-}
-
-
-dark blue #002244
-lime green #69BE28
-Grey #A5ACAF
-
 
