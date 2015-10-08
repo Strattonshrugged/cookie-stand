@@ -1,7 +1,50 @@
 
+/*
+// these variables are arrays of strings and numbers, data for the function
+var headers = ["Location","Min Per Hour","Max Per Hour","Avg Per Customer"];
+var pikepm = ["Pike Place Market",17,88,5.2,"pikepmlist"];
+var seatac = ["Seatac Airport",6,44,1.2,"seataclist"];
+var soctrm = ["Southcenter Mall",11,38,1.9,"soctrmlist"];
+var bellsq = ["Bellevue Square",20,48,3.3,"bellsqlist"];
+var alki = ["Alki",3,24,2.6,"alkilist"];
 
-// Hours of operation, use hours.length to generate numbers
+// these variables are arrays associated with the operations of the business
+locations = [pikepm,seatac,soctrm,bellsq,alki]
 hours = ['10 AM','11 AM','12 PM','1 PM','2 PM','3 PM','4 PM','5 PM']
+
+console.log("just before table function");
+
+function Table()	{
+	var table = document.getElementById("tableHerePlz"); 			// find where to start, initiate a table
+		for (var x=0; x < (locations.length + 1); x++)	{			// for every location (plus one for the headers) ...
+			var row = document.createElement('tr');					// make a new row
+				for (var y=0; y < headers.length; y++)	{			// for every header (column) ...
+					if (y=0)	{									// if you're still on the first row ...
+							var cell = document.createElement('th');// create a header cell
+						}	else	{								// and if you're not ...
+							var cell = document.createElement('td');// create a regular cell
+						}											// end of "if" check
+					var data = document.createTextNode('Blah');		// for now just put "blah" instead of real data
+						console.log("inside the x for loop");		// record
+					cell.appendChild(data);							// now attach the data to the cell
+				}													// end of y loop
+			row.appendChild(cell);									// now attach the cell to the row
+		}															// end of x loop
+	table.appendChild(table);										// now attach the row to the table
+}
+
+Table();
+*/
+
+
+/*
+	var totalList = document.getElementById("header");
+		var item = document.createElement('th')
+		item.appendChild(document.createTextNode("singular"));
+		totalList.appendChild(item);
+*/
+
+
 
 // Behold THE CONSTRUCTOR
 function Stand(locale, minCusPerHr, maxCusPerHr,avgCksPerCus,listPosition)	{
@@ -55,26 +98,6 @@ var seatac = new Stand("Seatac Airport",6,44,1.2,"seataclist");
 var soctrm = new Stand("Southcenter Mall",11,38,1.9,"soctrmlist");
 var bellsq = new Stand("Bellevue Square",20,48,3.3,"bellsqlist");
 var alki = new Stand("Alki",3,24,2.6,"alkilist");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
