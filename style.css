@@ -1,37 +1,51 @@
 
 
+header, section, footer, aside, nav, article	{
+	display: block;
+}
+
+figure, figcaption	{
+	display: block;
+}
+
 body	{
-	background-color: pink;
+	background-color: #54ff9f;
+	background-image: url("https://upload.wikimedia.org/wikipedia/commons/1/1c/Ocean_water_surface_texture_3_-_Martha's_Vineyard.JPG");
+	background-position: center;
 }
 
-h1,h3	{
+.wrapper	{
+	width: 940px;
+	margin: 10px auto 10px auto;
+	border: 2px solid #6BCAE2;
+	background-color: #ff9999;
 	font-family:'Almendra SC';
-	letter-spacing: 2;
+	letter-spacing: 2
+	line-height: 0.5;
 }
 
-#container		{
-	font-family:'DejaVu';
-	height: 100%;
-	margin-left: 20%;
-	margin-right: 20%;
-	background-color: #A5ACAF;
+#logoSalmon	{
+	float: right;
+	margin-right: 20px;
 }
 
-#text	{
-	font-family:'DejaVu Sans';
-	vertical-align;
-	color: #002244;
-}
+header	{
+	margin-left: 20px;
+}	
 
-
-#data	{
-	font-family:'DejaVu Serif';
-	color: #69BE28;
-	vertical-align;
-	letter-spacing: 1.5;
+h1		{
+	line-height: 0.75;
 	text-shadow:
-	-1px	-1px	#002244,
-	0px		0px		#002244;
-
+	1px		1px		#6BCAE2,
+	-1px    -1px    #6BCAE2;
 }
 
+aside	{
+	border: 2px solid #6BCAE2;
+	background-color: #ff9999;
+	font-family: 'Dejavu Serif';
+	font-size: 14px;
+	margin: 10px 10px 10px 15px;
+	width: 280px;
+	float: left;
+}
