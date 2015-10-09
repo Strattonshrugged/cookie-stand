@@ -1,7 +1,85 @@
 
 
-// Hours of operation, use hours.length to generate numbers
-hours = ['10 AM','11 AM','12 PM','1 PM','2 PM','3 PM','4 PM','5 PM']
+// these variables are arrays of strings and numbers, data for the function
+var pikepm = ["Pike Place Market",17,88,5.2];
+var seatac = ["Seatac Airport",6,44,1.2];
+var soctrm = ["Southcenter Mall",11,38,1.9];
+var bellsq = ["Bellevue Square",20,48,3.3];
+var alki = ["Alki",3,24,2.6];
+
+// these variables are arrays associated with the operations of the business
+var locations = [pikepm,seatac,soctrm,bellsq,alki];
+var hours = ['10 AM','11 AM','12 PM','1 PM','2 PM','3 PM','4 PM','5 PM'];
+
+// Josh's function, not Jared's
+function addCell(row, text) {
+	var elem = document.createElement("td");
+	elem.appendChild(document.createTextNode(text));
+	row.appendChild(elem);
+}
+
+function Table()	{	
+	var table = document.getElementById("tableHerePlz");	// make a variable called table, tell it where the table should start
+	var headerRow = document.createElement('tr');			// make a variable called headerRow, make it be a new table row
+	var cell = document.createElement('th');				// make a variable called top, make it a new header cell
+	var contents = document.createTextNode('Location');		// make a variable called contents, give it a table-text-node saying "Location"
+	cell.appendChild(contents);								// now stick that table-text-node thing into the header cell 
+	headerRow.appendChild(cell);							// now stick the header cell thing thing into the table row 
+	for (var i=0; i < hours.length; i++)	{				// now once for every thing in the array "hours" ...
+		var cell = document.createElement('th');			// make a variable called top, make it a new header cell
+		var contents = document.createTextNode(hours[i]);	// make a variable called contents, give it a table-text-node saying something from "hours"
+		cell.appendChild(contents);							// now stick the table-text-node thing into the header cell
+		headerRow.appendChild(cell);						// now stick the header cell thing into the table row
+	table.appendChild(headerRow);							// now stick the table row onto the table (could've done this later I guess)
+	} // end of for loop
+	var cell = document.createElement('th');				// make a variable called top, make it a new header cell
+	var contents = document.createTextNode('Total');		// make a variable called contents, give it a table-text-node saying "Total"
+	cell.appendChild(contents);								// put the table-text-node onto the header cell
+	headerRow.appendChild(cell);							// put the header cell onto the row
+	table.appendChild(headerRow);							// put the row onto the table
+	// Header Row Built
+
+	for (var i=0; i < locations.length; i++)	{			// for every location make a new row
+		var dataRow = document.createElement('tr');			// make a variable called dataRow, make it a new table row
+		// addCell(dataRow, locations[i][0]);
+		var cell = document.createElement('td');			// 
+		var contents = document.createTextNode(locations[i][0]);  
+		cell.appendChild(contents);
+		dataRow.appendChild(cell);
+		// made location cell and stuck it on
+		rowTotal = 0;
+		for (var j=0; j < hours.length; j++)	{
+			var cell = document.createElement('td');
+			var random = Math.floor((((Math.random() * locations[i][2] - locations[i][1] + 1)) + locations[i][1]) * locations[i][3])
+			rowTotal = random + rowTotal
+			var contents = document.createTextNode(random);
+			cell.appendChild(contents);
+			dataRow.appendChild(cell);
+		} // end of for loop
+		// make data cells and stuck them on
+		var cell = document.createElement('td');
+		var contents = document.createTextNode(rowTotal);
+		cell.appendChild(contents);
+		dataRow.appendChild(cell);
+		// made total cell and stuck it on
+
+		table.appendChild(dataRow);		// stick dataRow onto table	
+	} // end of for loop
+} // end of table function
+
+Table();
+
+// Make sure the appends are inside the for loops, get rid of the if statement
+
+
+
+/*
+	var totalList = document.getElementById("header");
+		var item = document.createElement('th')
+		item.appendChild(document.createTextNode("singular"));
+		totalList.appendChild(item);
+*/
+
 
 // Behold THE CONSTRUCTOR
 function Stand(locale, minCusPerHr, maxCusPerHr,avgCksPerCus,listPosition)	{
@@ -55,26 +133,6 @@ var seatac = new Stand("Seatac Airport",6,44,1.2,"seataclist");
 var soctrm = new Stand("Southcenter Mall",11,38,1.9,"soctrmlist");
 var bellsq = new Stand("Bellevue Square",20,48,3.3,"bellsqlist");
 var alki = new Stand("Alki",3,24,2.6,"alkilist");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
