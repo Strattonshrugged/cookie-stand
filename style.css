@@ -53,3 +53,17 @@ aside	{
 	width: 280px;
 	float: left;
 }
+
+button,input	{
+	margin: 6px 0px 6px 0px;
+}
+
+button		{
+	float: right;
+}
+
+fieldset	{
+	margin: 12px 0px 0px 0px;
+	width: 200px;
+}
+

@@ -1,14 +1,14 @@
 
 
 // these variables are arrays of strings and numbers, data for the function
-var pikepm = ["Pike Place Market",17,88,5.2];
-var seatac = ["Seatac Airport",6,44,1.2];
-var soctrm = ["Southcenter Mall",11,38,1.9];
-var bellsq = ["Bellevue Square",20,48,3.3];
-var alki = ["Alki",3,24,2.6];
+var PikePlaceMarket = ["Pike Place Market",17,88,5.2];
+var SeaTacAirport = ["Seatac Airport",6,44,1.2];
+var SouthcenterMall = ["Southcenter Mall",11,38,1.9];
+var BellevueSquare = ["Bellevue Square",20,48,3.3];
+var Alki = ["Alki",3,24,2.6];
 
 // these variables are arrays associated with the operations of the business
-var locations = [pikepm,seatac,soctrm,bellsq,alki];
+var locations = [PikePlaceMarket,SeaTacAirport,SouthcenterMall,BellevueSquare,Alki];
 var hours = ['10 AM','11 AM','12 PM','1 PM','2 PM','3 PM','4 PM','5 PM'];
 
 // Josh's function, not Jared's
@@ -18,7 +18,7 @@ function addCell(row, text) {
 	row.appendChild(elem);
 }
 
-function Table()	{	
+var Table = function()	{	
 	var table = document.getElementById("tableHerePlz");	// make a variable called table, tell it where the table should start
 	var headerRow = document.createElement('tr');			// make a variable called headerRow, make it be a new table row
 	var cell = document.createElement('th');				// make a variable called top, make it a new header cell
@@ -66,8 +66,31 @@ function Table()	{
 		table.appendChild(dataRow);		// stick dataRow onto table	
 	} // end of for loop
 } // end of table function
-
 Table();
+
+
+var Update = function()	{
+	// bring in the values from the html
+	var locInput = document.getElementById('location');
+	var minInput = document.getElementById('min');
+	var maxInput = document.getElementById('max');
+	var avgInput = document.getElementById('avg');
+	// check them for validity
+	// create a new locations attribute array with an extra location name
+	var placeHolder = [locInput,minInput,maxInput,avgInput,locInput];
+	// change the last location name to what you want it to be
+	placeHolder[4] = placeHolder[4].replace(/\s/g, '');
+	// create a variable with the right name
+	var n = placeHolder[4];
+	// give that right named variable the value of placeHolder
+	n = placeHolder;
+	// add that variable to the locations array to be run
+	locations.push(n);
+}
+
+var clickIt = document.getElementById("clickIt");
+clickIt.addEventListener('click', Update);
+
 
 // Make sure the appends are inside the for loops, get rid of the if statement
 
@@ -81,6 +104,8 @@ Table();
 */
 
 
+
+/*
 // Behold THE CONSTRUCTOR
 function Stand(locale, minCusPerHr, maxCusPerHr,avgCksPerCus,listPosition)	{
 	this.locale = locale;				// location is reserved, this is the formal name not the abbreviate
@@ -133,7 +158,7 @@ var seatac = new Stand("Seatac Airport",6,44,1.2,"seataclist");
 var soctrm = new Stand("Southcenter Mall",11,38,1.9,"soctrmlist");
 var bellsq = new Stand("Bellevue Square",20,48,3.3,"bellsqlist");
 var alki = new Stand("Alki",3,24,2.6,"alkilist");
-
+*/
 
 
 
