@@ -8,6 +8,10 @@ figure, figcaption	{
 	display: block;
 }
 
+table,th      {
+  border: 2px solid #000000;
+}
+
 body	{
 	background-color: #54ff9f;
 	background-image: url("https://upload.wikimedia.org/wikipedia/commons/1/1c/Ocean_water_surface_texture_3_-_Martha's_Vineyard.JPG");
