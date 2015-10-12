@@ -1,14 +1,14 @@
 
 
 // these variables are arrays of strings and numbers, data for the function
-var pikepm = ["Pike Place Market",17,88,5.2];
-var seatac = ["Seatac Airport",6,44,1.2];
-var soctrm = ["Southcenter Mall",11,38,1.9];
-var bellsq = ["Bellevue Square",20,48,3.3];
-var alki = ["Alki",3,24,2.6];
+var PikePlaceMarket = ["Pike Place Market",17,88,5.2];
+var SeaTacAirport = ["Seatac Airport",6,44,1.2];
+var SouthcenterMall = ["Southcenter Mall",11,38,1.9];
+var BellevueSquare = ["Bellevue Square",20,48,3.3];
+var Alki = ["Alki",3,24,2.6];
 
 // these variables are arrays associated with the operations of the business
-var locations = [pikepm,seatac,soctrm,bellsq,alki];
+var locations = [PikePlaceMarket,SeaTacAirport,SouthcenterMall,BellevueSquare,Alki];
 var hours = ['10 AM','11 AM','12 PM','1 PM','2 PM','3 PM','4 PM','5 PM'];
 
 // Josh's function, not Jared's
@@ -18,7 +18,33 @@ function addCell(row, text) {
 	row.appendChild(elem);
 }
 
-function Table()	{	
+function addRow(location)	{
+		var dataRow = document.createElement('tr');			// make a variable called dataRow, make it a new table row
+		// addCell(dataRow, locations[i][0]);
+		var cell = document.createElement('td');			// 
+		var contents = document.createTextNode(location[0]);  
+		cell.appendChild(contents);
+		dataRow.appendChild(cell);
+		// made location cell and stuck it on
+		rowTotal = 0;
+		for (var j=0; j < hours.length; j++)	{
+			var cell = document.createElement('td');
+			var random = Math.floor((((Math.random() * location[2] - location[1] + 1)) + location[1]) * location[3])
+			rowTotal = random + rowTotal
+			var contents = document.createTextNode(random);
+			cell.appendChild(contents);
+			dataRow.appendChild(cell);
+		} // end of for loop
+		// make data cells and stuck them on
+		var cell = document.createElement('td');
+		var contents = document.createTextNode(rowTotal);
+		cell.appendChild(contents);
+		dataRow.appendChild(cell);
+		// made total cell and stuck it on
+		return dataRow;
+}
+
+var Table = function()	{	
 	var table = document.getElementById("tableHerePlz");	// make a variable called table, tell it where the table should start
 	var headerRow = document.createElement('tr');			// make a variable called headerRow, make it be a new table row
 	var cell = document.createElement('th');				// make a variable called top, make it a new header cell
@@ -40,34 +66,44 @@ function Table()	{
 	// Header Row Built
 
 	for (var i=0; i < locations.length; i++)	{			// for every location make a new row
-		var dataRow = document.createElement('tr');			// make a variable called dataRow, make it a new table row
-		// addCell(dataRow, locations[i][0]);
-		var cell = document.createElement('td');			// 
-		var contents = document.createTextNode(locations[i][0]);  
-		cell.appendChild(contents);
-		dataRow.appendChild(cell);
-		// made location cell and stuck it on
-		rowTotal = 0;
-		for (var j=0; j < hours.length; j++)	{
-			var cell = document.createElement('td');
-			var random = Math.floor((((Math.random() * locations[i][2] - locations[i][1] + 1)) + locations[i][1]) * locations[i][3])
-			rowTotal = random + rowTotal
-			var contents = document.createTextNode(random);
-			cell.appendChild(contents);
-			dataRow.appendChild(cell);
-		} // end of for loop
-		// make data cells and stuck them on
-		var cell = document.createElement('td');
-		var contents = document.createTextNode(rowTotal);
-		cell.appendChild(contents);
-		dataRow.appendChild(cell);
-		// made total cell and stuck it on
+		var dataRow = addRow(locations[i]);
 
 		table.appendChild(dataRow);		// stick dataRow onto table	
 	} // end of for loop
 } // end of table function
-
 Table();
+
+
+
+
+
+
+var Update = function()	{
+	// bring in the values from the html, make them variables
+	var locInput = document.getElementById('location').value;
+	var minInput = document.getElementById('min').value;
+	var maxInput = document.getElementById('max').value;
+	var avgInput = document.getElementById('avg').value;
+	// make a variable with all the information named after the location string with no spaces
+
+	//locations.push([locInput,minInput,maxInput,avgInput]);
+	var table = document.getElementById("tableHerePlz");	// make a variable called table, tell it where the table should start
+	var dataRow = addRow([locInput,minInput,maxInput,avgInput])
+	table.appendChild(dataRow);
+	// function removeSpaces(locInput)	{
+	// 	return locInput.replace(/\s/g,'');
+	// }
+	// var  = [locInput,minInput,maxInput,avgInput];
+	// locations.push(Namer());
+}
+
+
+// Listen to the button, when it's clicked run the function named Update
+var clickIt = document.getElementById("clickIt");
+clickIt.addEventListener('click', Update);
+
+
+
 
 // Make sure the appends are inside the for loops, get rid of the if statement
 
@@ -81,6 +117,8 @@ Table();
 */
 
 
+
+/*
 // Behold THE CONSTRUCTOR
 function Stand(locale, minCusPerHr, maxCusPerHr,avgCksPerCus,listPosition)	{
 	this.locale = locale;				// location is reserved, this is the formal name not the abbreviate
@@ -133,7 +171,7 @@ var seatac = new Stand("Seatac Airport",6,44,1.2,"seataclist");
 var soctrm = new Stand("Southcenter Mall",11,38,1.9,"soctrmlist");
 var bellsq = new Stand("Bellevue Square",20,48,3.3,"bellsqlist");
 var alki = new Stand("Alki",3,24,2.6,"alkilist");
-
+*/
 
 
 
